@@ -1,21 +1,16 @@
-# Still a work in progress but is good enough for development
-#
-# `rake redmine:demo_data` for it all
-# `rake redmine:demo_data:users`
-# `rake redmine:demo_data:projects`
-# `rake redmine:demo_data:issues`
-# `rake redmine:demo_data:time_entries`
+# If you need another amount of data being created just search for (number..number).each or number.times entries in the file and increase the values
+
 require "faker"
 require "random_data"
 
 namespace :redmine do
-  desc "Add a set of demo data"
+  desc "Will execute all commands in a row for generating test data"
   task :demo_data => [:environment, "demo_data:projects", "demo_data:users", "demo_data:issues", "demo_data:time_entries"] do:
-    # no op
+    # just execute
   end
 
   namespace :demo_data do
-    desc "Add up to 5 random projects"
+    desc "Add random projects"
     task :projects => :environment do
       (1..5).each do
         project = Project.create(
@@ -31,7 +26,7 @@ namespace :redmine do
       puts "#{Project.count} projects total"
     end
 
-  desc "Add up to 25 random users with membership"
+  desc "Add up to random users with membership"
     task :users => :environment do
       projects = Project.all
       roles = Role.givable.to_a
@@ -104,7 +99,7 @@ task :issues => :environment do
 end
 
 
-desc "Add up to 250 random time entries"
+desc "Add random time entries"
     task :time_entries => :environment do
         issues = Issue.includes(:project, :author).to_a
   activities = TimeEntryActivity.where(active: true).to_a
