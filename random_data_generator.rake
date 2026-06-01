@@ -1,9 +1,16 @@
+# Still a work in progress but is good enough for development
+#
+# `rake redmine:demo_data` for it all
+# `rake redmine:demo_data:users`
+# `rake redmine:demo_data:projects`
+# `rake redmine:demo_data:issues`
+# `rake redmine:demo_data:time_entries`
 require "faker"
 require "random_data"
 
 namespace :redmine do
   desc "Add a set of demo data"
-  task :demo_data => [:environment, "demo_data:users", "demo_data:projects", "demo_data:issues", "demo_data:time_entries"] do
+  task :demo_data => [:environment, "demo_data:projects", "demo_data:users", "demo_data:issues", "demo_data:time_entries"] do:
     # no op
   end
 
@@ -18,7 +25,7 @@ namespace :redmine do
           :identifier => Faker::Internet.domain_word,
         )
         project.trackers = Tracker.all
-        project.save
+        project.save!
       end
 
       puts "#{Project.count} projects total"
@@ -26,8 +33,7 @@ namespace :redmine do
 
   desc "Add up to 25 random users with membership"
     task :users => :environment do
-      status = [User::STATUS_ACTIVE, User::STATUS_REGISTERED, User::STATUS_LOCKED]
-      projects = Project.all      
+      projects = Project.all
       roles = Role.givable.to_a
           25.times do
     user = User.new(
@@ -40,7 +46,7 @@ namespace :redmine do
     user.login = Faker::Internet.user_name
     user.password = "demodemo3#!"
     user.password_confirmation = "demodemo3#!"
-    user.save
+    user.save!
 
     # Add membership to random projects
     (1..5).each do
