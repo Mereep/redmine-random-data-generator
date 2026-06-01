@@ -1,7 +1,5 @@
 # redmine-random-data-generator
-Generates some Random Data into Redime for Testing purposes
-
-Will create issues, users, timelines, 
+Generates Random Data into Redmine for Testing purposes. Creates `projects`, `users`, `issues` and `time entries`.
 
 ## Usage 
 Following: `redmine_base` is the directory where redmine resides, contains directories like `app`, `bin` etc.; e.g., `/usr/src/redmine` <-- default redmine docker container directory
@@ -14,7 +12,7 @@ Following: `redmine_base` is the directory where redmine resides, contains direc
         
 ### Run:
   - Switch Working Dir: `cd [redmine_base]` 
-  - If not done already, spawn the Remine default data
+  - If not done already, spawn the Redmine default data
     -  `bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG=en`
   - Install Dependencies:
     - Create Dependency-File (`Gemfile.local`):
@@ -28,14 +26,14 @@ Following: `redmine_base` is the directory where redmine resides, contains direc
     - Install dependencies: `bundle install`
   - Copy the script file to `[redmine_base]/lib/tasks/random_data_generator.rake`
   - Now you can spawn the data as follows (order matters):
-    - Users: `bundle exec rake redmine:demo_data:users RAILS_ENV=production`
     - Projects: `bundle exec rake redmine:demo_data:projects RAILS_ENV=production`
+    - Users: `bundle exec rake redmine:demo_data:users RAILS_ENV=production`
     - Issues: `bundle exec rake redmine:demo_data:issues RAILS_ENV=production`
     - Time Entries: `bundle exec rake redmine:demo_data:time_entries RAILS_ENV=production`
 
 
 ## Why
-I needed a Redmine with some default data for testing purposes. However, the officially Repo listed in the Redmine Docs does not exist (anymore):
+I needed a Redmine with some default data for testing purposes. However, the officiall Repo listed in the Redmine Docs does not exist (anymore):
 - Redmine Doc: https://www.redmine.org/projects/redmine/wiki/Generating_demo_data
 - Pointed to Repo (n/a): https://github.com/acosonic/redmine_data_generator
 
