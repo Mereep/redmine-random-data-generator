@@ -11,17 +11,27 @@ Following: `redmine_base` is the directory where redmine resides, contains direc
   - Environment set correctly (Database conection working, App is able to Bootup etc.)
     - Make sure you have `SECRET_KEY_BASE=whateveryourpasswordis set`
       - Hint: if following the installation guides in `https://hub.docker.com/_/redmine` make sure you extend the environment variables for this
+        
 ### Run:
   - Switch Working Dir: `cd [redmine_base]` 
   - If not done already, spawn the Remine default data
     -  `bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG=en`
+  - Install Dependencies:
+    - Create Dependency-File (`Gemfile.local`):
+     ```bash
+     cat >> Gemfile.local <<'EOF'
+     gem 'faker'
+     gem 'random_data'
+     EOF
+     ```
+     (or just create a file with the two `gem ...` entries)
+    - Install dependencies: `bundle install`
   - Copy the script file to `[redmine_base]/lib/tasks/random_data_generator.rake`
   - Now you can spawn the data as follows (order matters):
     - Users: `bundle exec rake redmine:demo_data:users RAILS_ENV=production`
     - Projects: `bundle exec rake redmine:demo_data:projects RAILS_ENV=production`
     - Issues: `bundle exec rake redmine:demo_data:issues RAILS_ENV=production`
     - Time Entries: `bundle exec rake redmine:demo_data:time_entries RAILS_ENV=production`
-
 
 
 ## Why
