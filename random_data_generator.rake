@@ -5,11 +5,11 @@ require "random_data"
 
 namespace :redmine do
   desc "Will execute all commands in a row for generating test data"
-  task :demo_data => [:environment, "demo_data:projects", "demo_data:users", "demo_data:issues", "demo_data:time_entries"] do:
+  task :"random-data" => [:environment, "random-data:projects", "random-data:users", "random-data:issues", "random-data:time_entries"] do
     # just execute
   end
 
-  namespace :demo_data do
+  namespace :"random-data" do
     desc "Add random projects"
     task :projects => :environment do
       (1..5).each do
