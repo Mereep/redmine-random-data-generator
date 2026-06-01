@@ -28,10 +28,10 @@ Following: `redmine_base` is the directory where redmine resides, contains direc
     - Install dependencies: `bundle install`
   - Copy the script file to `[redmine_base]/lib/tasks/random_data_generator.rake`
   - Now you can spawn the data as follows (order matters):
-    - Projects: `bundle exec rake redmine:demo_data:projects RAILS_ENV=production`
-    - Users: `bundle exec rake redmine:demo_data:users RAILS_ENV=production`
-    - Issues: `bundle exec rake redmine:demo_data:issues RAILS_ENV=production`
-    - Time Entries: `bundle exec rake redmine:demo_data:time_entries RAILS_ENV=production`
+    - Projects: `bundle exec rake redmine:random-data:projects RAILS_ENV=production`
+    - Users: `bundle exec rake redmine:random-data:users RAILS_ENV=production`
+    - Issues: `bundle exec rake redmine:random-data:issues RAILS_ENV=production`
+    - Time Entries: `bundle exec rake redmine:random-data:time_entries RAILS_ENV=production`
 
 
 ## Why
