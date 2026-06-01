@@ -1,6 +1,8 @@
 # redmine-random-data-generator
 Generates Random Data into Redmine for Testing purposes. Creates `projects`, `users`, `issues` and `time entries`.
 
+**Warning: ** Use only on disposable development/test Redmine instances. This script creates persistent data and does not clean it up.
+
 ## Usage 
 Following: `redmine_base` is the directory where redmine resides, contains directories like `app`, `bin` etc.; e.g., `/usr/src/redmine` <-- default redmine docker container directory
 
