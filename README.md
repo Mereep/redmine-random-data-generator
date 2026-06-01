@@ -8,7 +8,7 @@ Following: `redmine_base` is the directory where redmine resides, contains direc
 
 ### Preconditions:
   - Redmine installed
-  - Environment set correctly (Database conection working, App is able to Bootup etc.)
+  - Environment set correctly (Database connection is working, App is able to Bootup etc.)
     - Make sure you have `SECRET_KEY_BASE=whateveryourpasswordis set`
       - Hint: if following the installation guides in `https://hub.docker.com/_/redmine` make sure you extend the environment variables for this
         
