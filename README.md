@@ -31,6 +31,7 @@ Following: `redmine_base` is the directory where redmine resides, contains direc
     - Projects: `bundle exec rake redmine:random-data:projects RAILS_ENV=production`
     - Users: `bundle exec rake redmine:random-data:users RAILS_ENV=production`
     - Issues: `bundle exec rake redmine:random-data:issues RAILS_ENV=production`
+    - Assignments: `bundle exec rake redmine:random-data:assignments RAILS_ENV=production`,
     - Time Entries: `bundle exec rake redmine:random-data:time_entries RAILS_ENV=production`
 
 
